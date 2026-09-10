@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YAMAHA - 家庭影院与专业音响</title>
+    <style>
+        /* ================= 全局重置与基础样式 ================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", "PingFang SC", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            color: #333;
+            background-color: #f9f9f9; /* 整体浅灰背景，突出白色内容区 */
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 1200px; /* 固定内容宽度，符合传统PC端设计稿 */
+            margin: 0 auto;
+            background-color: #fff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+        }
+
+        /* 通用标题样式 */
+        .section-title {
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            color: #000;
+            margin: 60px 0 40px;
+            letter-spacing: 2px;
+        }
+
+        /* ================= 1. 顶部导航栏 (Header) ================= */
+        header {
+            background-color: #000;
+            height: 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 40px;
+            color: #fff;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            letter-spacing: 1px;
+        }
+        
+        /* 模拟雅马哈Logo的图标 */
+        .logo-icon {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border: 2px solid #fff;
+            border-radius: 50%;
+            position: relative;
+        }
+        .logo-icon::after {
+            content: '♯'; /* 用音乐符号简单代替 */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 18px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #aaa;
+        }
+
+        .auth-links {
+            display: flex;
+            gap: 20px;
+            font-size: 15px;
+        }
+
+        /* ================= 2. 首屏大图 (Hero Banner) ================= */
+        .hero-banner {
+            width: 100%;
+            height: 500px;
+            /* 使用 Unsplash 占位图模拟客厅音响场景 */
+            background-image: url('https://images.unsplash.com/photo-1593642632823-8f785ba67e45?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        /* 模拟轮播图的小圆点 */
+        .carousel-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .dot.active {
+            background-color: #fff;
+        }
+
+        /* ================= 3. 选择您的产品 (Products) ================= */
+        .products-section {
+            padding: 0 40px;
+        }
+
+        .product-grid {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .product-card {
+            width: 48%;
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .product-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .product-overlay h3 {
+            color: #fff;
+            font-size: 24px;
+            letter-spacing: 2px;
+        }
+
+        /* ================= 4. 公司介绍 (About Us) ================= */
+        .about-section {
+            padding: 0 150px; /* 两侧留白较多，让文字居中紧凑 */
+            text-align: center;
+        }
+
+        .about-text {
+            font-size: 14px;
+            color: #666;
+            line-height: 2;
+            margin-bottom: 30px;
+            text-align: justify; /* 两端对齐更美观 */
+            text-align-last: center; /* 最后一行居中 */
+        }
+
+        .btn-more {
+            display: inline-block;
+            padding: 10px 40px;
+            border: 1px solid #333;
+            color: #333;
+            font-size: 14px;
+            transition: all 0.3s;
+            margin-bottom: 50px;
+        }
+
+        .btn-more:hover {
+            background-color: #333;
+            color: #fff;
+        }
+
+        .about-banner {
+            width: 100%;
+            height: 350px;
+            /* 模拟星际穿越影音室图片 */
+            background-image: url('https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* ================= 5. 我们的案例 (Cases) ================= */
+        .cases-section {
+            padding: 0 40px 60px;
+        }
+
+        .case-grid {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .case-item {
+            width: 32%;
+            cursor: pointer;
+        }
+
+        .case-img-wrapper {
+            width: 100%;
+            height: 180px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+
+        .case-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s;
+        }
+
+        .case-item:hover .case-img-wrapper img {
+            transform: scale(1.08);
+        }
+
+        .case-title {
+            font-size: 14px;
+            color: #333;
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        /* ================= 6. 页脚 (Footer) ================= */
+        footer {
+            background-color: #111;
+            color: #666;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 12px;
+            position: relative;
+        }
+
+        .watermark {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #444;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- 1. 顶部导航 -->
+        <header>
+            <div class="logo">
+                <span class="logo-icon"></span>
+                YAMAHA
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">首页</a></li>
+                    <li><a href="#">家庭音响</a></li>
+                    <li><a href="#">专业音响</a></li>
+                    <li><a href="#">经典案例</a></li>
+                    <li><a href="#">品牌介绍</a></li>
+                    <li><a href="#">新闻中心</a></li>
+                </ul>
+            </nav>
+            <div class="auth-links">
+                <a href="#">登录</a>
+                <a href="#">注册</a>
+            </div>
+        </header>
+
+        <!-- 2. 首屏大图 -->
+        <section class="hero-banner">
+            <div class="carousel-dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+            </div>
+        </section>
+
+        <!-- 3. 选择您的产品 -->
+        <section class="products-section">
+            <h2 class="section-title">选择您的产品</h2>
+            <div class="product-grid">
+                <!-- 左侧：家庭音响 -->
+                <div class="product-card">
+                    <!-- 占位图：黑色音响喇叭特写 -->
+                    <img src="https://images.unsplash.com/photo-1545450660-3378a7f3a364?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="家庭音响">
+                    <div class="product-overlay">
+                        <h3>家庭音响</h3>
+                    </div>
+                </div>
+                <!-- 右侧：专业音响 -->
+                <div class="product-card">
+                    <!-- 占位图：黑色网罩特写 -->
+                    <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="专业音响">
+                    <div class="product-overlay">
+                        <h3>专业音响</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. 公司介绍 -->
+        <section class="about-section">
+            <h2 class="section-title">公司介绍</h2>
+            <p class="about-text">
+                多年来，雅马哈一向致力于帮助艺术家们通过现场以及录制的表演节目激发和感染听众。现在，我们将这些专业经验和技术理念应用于开发一系列高品质的家庭影院设备。更简便的操作界面，让您能够轻松地安装与使用，在家就能够感受到音乐厅或影院的效果。雅马哈家庭影院融合典雅的外观设计、精致的工艺、不凡的音质、以及出众的环绕技术，为您提供高品质的环绕声影音体验。
+            </p>
+            <a href="#" class="btn-more">查看更多</a>
+            
+            <!-- 中间的大横幅图 -->
+            <div class="about-banner"></div>
+        </section>
+
+        <!-- 5. 我们的案例 -->
+        <section class="cases-section">
+            <h2 class="section-title">我们的案例</h2>
+            <div class="case-grid">
+                <div class="case-item">
+                    <div class="case-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1585647347483-22b66260dfff?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="案例1">
+                    </div>
+                    <p class="case-title">造境成画，借光为适 | 寻觅都市中的最美影音空间</p>
+                </div>
+                <div class="case-item">
+                    <div class="case-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1598387181032-a3103a2db5b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="案例2">
+                    </div>
+                    <p class="case-title">智能影音中山三角别墅案例分享</p>
+                </div>
+                <div class="case-item">
+                    <div class="case-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="案例3">
+                    </div>
+                    <p class="case-title">智能影音旗舰体验中心影音室</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. 页脚 -->
+        <footer>
+            <p>版权所有</p>
+            <div class="watermark">
+                <!-- 模拟右下角的水印 -->
+                @诽赣糙幢宦伊 CSDN @T-可马青衫
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>

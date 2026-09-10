@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<meta charset="utf-8"> 
+<title>菜鸟教程(runoob.com)</title> 
+</head>
+<body>
+
+<p>
+<a href="/index.html">本文本</a> 是一个指向本网站中的一个页面的链接。</p>
+
+<p><a href="https://www.runoob.com/html/html-links.html">本文本长长多多多</a> 是一个指向万维网上的页面的链接。</p>
+
+
+<a href="https://www.example.com" target="_blank" rel="noopener noreferrer">安全链接</a>
+
+<a href="https://www.example.com" target="_blank" rel="noopener">新窗口打开 Example</a>
+
+<a href="2.pdf" download="example.pdf">下载文件</a>
+
+<p><a href="https://www.baidu.com/Index.htm" title="百度启动 网站">访问 Example</a></p>
+
+<!-- 链接到页面中的某个部分 -->
+<a href="#section1">跳转到第1部分</a>
+<div id="section1">这是第1部分</div>
+
+<a href="https://www.example.com/es" hreflang="es">访问西班牙语网站</a>
+
+<a href="https://www.example.com" class="external-link">外部链接</a>
+<a href="https://www.example.com" style="color: #8ACD3277;">红色链接</a>
+<a href="https://www.example.com" style="color: rgb(214, 125, 250);;">绿色链接</a>
+<a href="https://www.example.com" style="color: #954661;">绿色链接</a>
+color: #e0ffff
+
+<!--  
+这是开发中使用最广泛的写法，格式为以#开头，后跟6或者8位十六进制字符（0-9、A-F），每两位分别对应红、绿、蓝三种颜色的强度，取值范围从00（最暗）到FF（最亮）。
+你可以直接把示例中的黄色替换为纯黄色的十六进制写法：
+
+简化规则：如果每两位通道的字符完全相同，可以缩写为3位，比如#FFCC00可以简写为#FC0，二者效果完全等价。)
+#RRGGBBAA
+
+HSL/HSLA 颜色表示法
+这种写法更符合人眼对颜色的感知逻辑，三个参数分别是：
+
+色相（0-360）：0对应红色，60对应黄色，120对应绿色，240对应蓝色
+饱和度（0%-100%）：0%是灰度，100%是最鲜艳的颜色
+亮度（0%-100%）：0%是纯黑，100%是纯白
+比如示例中的黄绿色就可以用HSL表示为：
+ -->
+<a href="https://www.example.com" style="color: hsl(750, 70%, 40%);">绿色链接</a><br>
+
+<a href="https://www.example.com">
+  <img src="652.jpg" alt="示例图片" width="200" >
+</a>
+<br>
+<a href="#section2">跳转到第二部分</a>
+<!-- 在页面中的某个位置 -->
+<a name="section2"></a>
+<br>
+<a href="https://cn.bing.com/search?q=%E5%97%AF%E5%97%AF%E5%AF%B9&form=ANNTH1&refig=6a8be5fa51b74a12a51eff45b6d8e8dd&pc=U531" target="_blank" rel="noopener noreferrer">访问菜鸟教程!</a>
+<br>
+<a href="https://www.runoob.com/" target="_blank&quot">访问菜鸟教程!</a>
+<a href="https://www.runoob.com/" target="&quot">访问菜鸟教程!</a><br>
+<a id="tips">有用的提示部分</a>
+<a href="#tips">访问有用的提示部分</a><br>
+<a href="https://www.runoob.com/html/html-links.html#tips">
+访问有用的提示部分</a>
+
+</body>
+</html>

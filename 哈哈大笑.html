@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>盒模型可视化 · 彩色版</title>
+    <style>
+        /* 重置默认边距，让 body 紧贴视口 */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: #2b2b2b;          /* 深灰背景，衬托盒子 */
+            padding: 30px;                /* body 内边距（带背景色） */
+            margin: 20px;                /* body 外边距（透明，会露出浏览器灰色背景） */
+            border: 5px dashed #ffaa00;  /* body 边框（黄色虚线） */
+            /* 注意：body 本身也是盒子，这些属性都会生效 */
+        }
+
+        /* 最外层大盒子 —— 模拟“网页容器” */
+        .page-wrapper {
+            width: 700px;
+            margin: 30px auto;            /* 上下30px，左右居中（外边距） */
+            padding: 40px;               /* 内边距（带背景色） */
+            border: 8px solid #e74c3c;    /* 红色边框 */
+            background: #f1c40f;          /* 黄色背景（覆盖 padding 区域） */
+            box-sizing: border-box;       /* 让 width 包含 border + padding */
+        }
+
+        /* 标题区域 —— 子盒子1 */
+        .header {
+            padding: 20px;
+            border: 4px solid #2980b9;    /* 蓝色边框 */
+            background: #3498db;          /* 蓝色背景 */
+            color: white;
+            margin-bottom: 30px;          /* 下外边距，推离下面的盒子 */
+        }
+
+        /* 内容区域 —— 子盒子2 (包含两个内联子盒) */
+        .content {
+            padding: 25px;
+            border: 6px solid #27ae60;    /* 绿色边框 */
+            background: #2ecc71;          /* 绿色背景 */
+            margin-bottom: 25px;
+            overflow: hidden;             /* 清除浮动 */
+        }
+
+        /* 内容区域里的左子盒 */
+        .left-box {
+            float: left;
+            width: 45%;
+            padding: 15px;
+            border: 3px solid #8e44ad;    /* 紫色边框 */
+            background: #9b59b6;          /* 紫色背景 */
+            color: white;
+            margin-right: 5%;             /* 右外边距（与右子盒隔开） */
+            box-sizing: border-box;
+        }
+
+        /* 内容区域里的右子盒 */
+        .right-box {
+            float: left;
+            width: 45%;
+            padding: 15px;
+            border: 3px solid #d35400;    /* 橙色边框 */
+            background: #e67e22;          /* 橙色背景 */
+            color: white;
+            box-sizing: border-box;
+        }
+
+        /* 底部盒子 —— 子盒子3 */
+        .footer {
+            padding: 15px 30px;
+            border: 5px solid #c0392b;    /* 深红色边框 */
+            background: #e74c3c;          /* 红色背景 */
+            color: white;
+            margin-top: 10px;
+            clear: both;                  /* 清除浮动 */
+        }
+
+        /* 辅助说明文字（在每个盒子里显示当前盒子的角色） */
+        .label {
+            font-size: 14px;
+            font-weight: bold;
+            opacity: 0.9;
+            display: block;
+            margin-top: 6px;
+            background: rgba(0,0,0,0.2);
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+
+        /* 一些额外的装饰说明，显示在 body 外部 */
+        .info-note {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.8);
+            color: #fff;
+            padding: 12px 18px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-family: monospace;
+            z-index: 999;
+            border: 1px solid #888;
+            max-width: 300px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+        }
+        .info-note strong { color: #f1c40f; }
+    </style>
+</head>
+<body>
+    <!-- 整个页面就是 body 这个盒子 -->
+    <!-- body 有外边距（灰色边框外）、内边距（灰色区域）、边框（黄色虚线） -->
+    
+    <div class="page-wrapper">
+        <!-- 这是最外层的大盒子，模拟“网页容器” -->
+        <div class="header">
+            <h2>📦 头部盒子 (Header)</h2>
+            <span class="label">背景: #3498db · 边框: 蓝色 · 内边距: 20px · 下外边距: 30px</span>
+        </div>
+
+        <div class="content">
+            <h3 style="color:white; margin-top:0;">📦 内容区 (Content)</h3>
+            <span class="label" style="background:rgba(0,0,0,0.3);">背景: #2ecc71 · 边框: 绿色 · 内边距: 25px · 下外边距: 25px</span>
+            <div style="clear:both; margin-top:12px;"></div>
+            
+            <div class="left-box">
+                <strong>左子盒</strong>
+                <span class="label" style="background:rgba(0,0,0,0.3);">背景: #9b59b6 · 边框: 紫色 · 内边距: 15px · 右外边距: 5%</span>
+                <p style="margin:8px 0 0;">我是左子盒，float:left，宽度45%。</p>
+            </div>
+
+            <div class="right-box">
+                <strong>右子盒</strong>
+                <span class="label" style="background:rgba(0,0,0,0.3);">背景: #e67e22 · 边框: 橙色 · 内边距: 15px</span>
+                <p style="margin:8px 0 0;">我是右子盒，float:left，宽度45%。</p>
+            </div>
+
+            <div style="clear:both;"></div>
+            <!-- 为了让内容区可见，加一小段说明 -->
+            <p style="color:white; margin-top:20px; background:rgba(0,0,0,0.2); padding:8px; border-radius:4px;">
+                ⚡ 内容区背景色覆盖了 padding 区域，边框是独立的颜色。
+            </p>
+        </div>
+
+        <div class="footer">
+            <h3 style="margin:0;">📦 底部盒子 (Footer)</h3>
+            <span class="label">背景: #e74c3c · 边框: 深红色 · 内边距: 15px 30px · 上外边距: 10px</span>
+            <p style="margin:8px 0 0;">我是底部盒子，clear:both 清除浮动。</p>
+        </div>
+
+        <!-- 在大盒子内部添加一个说明，展示 page-wrapper 本身的盒模型 -->
+        <div style="margin-top:25px; padding:12px; background:rgba(0,0,0,0.15); border-radius:6px; color:#222;">
+            <strong>📌 最外层 .page-wrapper：</strong>
+            <span style="background:rgba(255,255,255,0.5); padding:2px 10px; border-radius:4px;">
+                外边距: 30px auto · 边框: 8px 红色 solid · 内边距: 40px · 背景: #f1c40f (黄色)
+            </span>
+            <span style="display:inline-block; margin-left:20px; background:rgba(255,0,0,0.2); padding:2px 10px; border-radius:4px;">
+                box-sizing: border-box
+            </span>
+        </div>
+    </div>
+
+    <!-- 浮动信息面板，解释当前看到的几个关键点 -->
+    <div class="info-note">
+        <strong>🔍 盒模型观察点</strong><br>
+        • <span style="color:#f1c40f;">黄色区域</span> = .page-wrapper 的 <strong>内边距+内容</strong><br>
+        • <span style="color:#e74c3c;">红色边框</span> = .page-wrapper 的边框<br>
+        • <span style="color:#2b2b2b;">深灰色</span> = body 的 <strong>内边距</strong> (带背景)<br>
+        • <span style="color:#888;">body 外围空白</span> = body 的 <strong>外边距</strong> (透明)<br>
+        • 每个子盒子都有独立的背景/边框/边距，互不混淆
+    </div>
+</body>
+</html>

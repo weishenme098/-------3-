@@ -1,0 +1,78 @@
+{
+  "status": "success",
+  "message": "Algorithm executed successfully",
+  "SystemOutput": {
+    "Status_GridPCC": 1,
+    "Status_MicrogridBranch": 1,
+    "Flag_MicrogridSupply1": 1,
+    "Flag_MicrogridSupply2": 0,
+    "DeltaP_Microgrid": 54.5,
+    "Pset_Microgrid": 80.5,
+    "P0_max": 110.0,
+    "P0_min": -110.0,
+    "num1_conwarnning": 0,
+    "num2_conwarnning": 0,
+    "Flag_OverWarning": 0,
+    "Flag_ExceedMicrogridCapability": 0
+  },
+  "IntegrationOutputs": [
+    {
+        "ID": "UNIT_001",
+        "Flag_Selected": 1,
+        "DCDC_PV": {
+            "P_set": 80.5,
+            "HighVoltage_set": 900.0,
+            "Current_set": 200.0
+        },
+        "PCS": [
+            {
+                "ID_PCS": "PCS_001",
+                "FaultResetControl_PCS": 0,
+                "Num_FaultReset": 0,
+                "Flag_FaultResetFailure": 0,
+                "StartStopControl_PCS": 1,
+                "RunModeControl_PCS": 2,
+                "deltaP_set": 5.0,
+                "P_set": 95.5,
+                "deltaQ_set": -2.0,
+                "Q_set": 8.2
+            },
+            {
+                "ID_PCS": "PCS_003",
+                "FaultResetControl_PCS": 0,
+                "Num_FaultReset": 0,
+                "Flag_FaultResetFailure": 0,
+                "StartStopControl_PCS": 1,
+                "RunModeControl_PCS": 1,
+                "deltaP_set": 0.0,
+                "P_set": 0.0,
+                "deltaQ_set": 0.0,
+                "Q_set": 0.0
+            }
+        ]
+    },
+    {
+        "ID": "UNIT_002",
+        "Flag_Selected": 0,
+        "DCDC_PV": {
+            "P_set": 40.0,
+            "HighVoltage_set": 920.0,
+            "Current_set": 200.0
+        },
+        "PCS": [
+            {
+                "ID_PCS": "PCS_002",
+                "FaultResetControl_PCS": 1,
+                "Num_FaultReset": 1,
+                "Flag_FaultResetFailure": 0,
+                "StartStopControl_PCS": 0,
+                "RunModeControl_PCS": 2,
+                "deltaP_set": 0.0,
+                "P_set": 0.0,
+                "deltaQ_set": 0.0,
+                "Q_set": 0.0
+            }
+        ]
+    }
+  ]
+}

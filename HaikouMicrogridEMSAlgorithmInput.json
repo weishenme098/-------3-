@@ -1,0 +1,230 @@
+{
+    "Configuration": {
+        "Flag_MicrogridType": 3,
+        "Require_GridStatus": 1,
+        "Un_Grid": 380.0,
+        "AllowableDeviation_Ugrid": 38.0,
+        "Un_Microgrid": 380.0,
+        "AllowableDeviation_Umicrogrid": 38.0,
+        "SOCmax_LiEss": 90.0,
+        "SOCmin_LiEss": 10.0,
+        "SOC_Autocharge": 5.0,
+        "SOC_StopAutocharge": 30.0,
+        "InitialSOC_EconomicDispatch": 50.0,
+        "P_max_Load": 100.0,
+        "P_average_Load": 45.0,
+        "Time_OffgridOperation": 6.0,
+        "Time_Sunny": 1.5,
+        "Time_Cloudy": 7.0,
+        "Time_Rainy": 12.0,
+        "Maxnum_conwarnning": 3,
+        "Flag_WeatherStatus": 1,
+        "DeadZone_IncreaseActivePower": 5.0,
+        "DeadZone_DecreaseActivePower": -5.0,
+        "Kp_ActivePowerControl": 0.5,
+        "Ki_ActivePowerControl": 0.001,
+        "DeadZone_IncreaseReactivePower": 4.0,
+        "DeadZone_DecreaseReactivePower": -4.0,
+        "Kp_ReactivePowerControl": 0.5,
+        "Ki_ReactivePowerControl": 0.001,
+        "ControlCycle": 2.0,
+        "P_restrict_G2M": -120.0,
+        "DeltaP_warn_G2M": 10.0,
+        "P_restrict_M2G": 120.0,
+        "DeltaP_warn_M2G": 5.0,
+        "Qmax_pcc": 100.0,
+        "Qmin_pcc": -100.0,
+        "PF_max_pcc": 0.85,
+        "PF_min_pcc": -0.85,
+        "Uset_Grid": 380.0,
+        "ControlFlag_OffgridFrequencyStability": 0,
+        "ControlFlag_OffgridVoltageStability": 0,
+        "ControlFlag_GridConnectedActivePower": 1,
+        "ControlFlag_EconomicDispatch": 1,
+        "ControlFlag_GridConnectedReactivePower": 1
+    },
+    "ExternalPowerGrid": {
+        "F_real_pcc": 50.0,
+        "Ua_Grid": 385.0,
+        "Ub_Grid": 380.0,
+        "Uc_Grid": 382.0,
+        "Ua_Microgrid": 380.0,
+        "Ub_Microgrid": 378.0,
+        "Uc_Microgrid": 380.0,
+        "P_real_pcc": -18.0,
+        "P_previousone_pcc": -18.0,
+        "P_previoustwo_pcc": -25.0,
+        "P_previousthree_pcc": -30.0,
+        "DeltaP_Microgrid_1": 0.0,
+        "DeltaP_Microgrid_2": 7.0,
+        "DeltaP_Microgrid_3": 6.0,
+        "Flag_OverWarning_1": 0,
+        "TimeStatus": 1,
+        "WeatherStatus": 2,
+        "Q_real_pcc": 10.0,
+        "PF_real_pcc": 0.98
+    },
+    "Switches": [
+        {
+            "ID": "SW401",
+            "Type": 0,
+            "FaultFlag": 0,
+            "Status": 1
+        },
+        {
+            "ID": "SW402",
+            "Type": 2,
+            "FaultFlag": 0,
+            "Status": 0
+        },
+        {
+            "ID": "SW403",
+            "Type": 2,
+            "FaultFlag": 1,
+            "Status": 0
+        },
+        {
+            "ID": "SW40134",
+            "Type": 1,
+            "FaultFlag": 0,
+            "Status": 1
+        },
+        {
+            "ID": "SW405",
+            "Type": 1,
+            "FaultFlag": 0,
+            "Status": 1
+        }
+    ],
+    "ChangingDevice": {
+        "RunStatus": 1,
+        "CommunicationFaultStatus": 0,
+        "NonCommunicationFaultStatus": 0
+    },
+    "IntegrationInputs": [
+        {
+            "ID": "UNIT_001",
+            "Wind": [
+                {
+                    "ID_WT": "WT001",
+                    "Status": 0,
+                    "Flag_Adjust": 1,
+                    "P_real": 3.0,
+                    "Pn": 5.0,
+                    "P_max": 5.0,
+                    "P_min": 1.0
+                },
+                {
+                    "ID_WT": "WT002",
+                    "Status": 0,
+                    "Flag_Adjust": 0,
+                    "P_real": 4.0,
+                    "Pn": 5.0,
+                    "P_max": 5.0,
+                    "P_min": 0.0
+                },
+                {
+                    "ID_WT": "WT003",
+                    "Status": 1,
+                    "Flag_Adjust": 0,
+                    "P_real": 0.0,
+                    "Pn": 5.0,
+                    "P_max": 5.0,
+                    "P_min": 0.0
+                }
+            ],
+            "DCDC_PV": {
+                "FaultStatus_DCDC": 0,
+                "RunStatus_DCDC": 1,
+                "Flag_Adjust": 1,
+                "P_real": 60.0,
+                "Pn": 100.0,
+                "P_max": 75.0,
+                "P_min": 0.0,
+                "HighVoltage_real": 850.0,
+                "I_max": 200.0
+            },
+            "LiEss": {
+                "Status": 0,
+                "RatedCapacity": 233.0,
+                "SOC_real": 65.0,
+                "P_real": 50.0,
+                "P_max": 100.0,
+                "P_min": -100.0,
+                "UnallowedChargingVoltage": 900.0,
+                "TMSComState": 2,
+                "ClusterMaxCellTemp": 35.0
+            },
+            "PCS": [
+                {
+                    "ID_PCS": "PCS_001",
+                    "FaultStatus_PCS": 0,
+                    "RunStatus_PCS": 1,
+                    "RunMode_PCS": 2,
+                    "Type_PCS": 1,
+                    "Flag_VFPCS": 1,
+                    "Pn": 100.0,
+                    "P_real": 90.4,
+                    "Q_real": 10.2,
+                    "P_max": 100.0,
+                    "P_min": -100.0,
+                    "P_set_1": 95.0
+                },
+                {
+                    "ID_PCS": "PCS_003",
+                    "FaultStatus_PCS": 0,
+                    "RunStatus_PCS": 1,
+                    "RunMode_PCS": 1,
+                    "Type_PCS": 2,
+                    "Flag_VFPCS": 1,
+                    "Pn": 100.0,
+                    "P_real": 10.0,
+                    "Q_real": 0.0,
+                    "P_max": 15.0,
+                    "P_min": 0.0,
+                    "P_set_1": 0.0
+                }
+            ]
+        },
+        {
+            "ID": "UNIT_002",
+            "Key_Sort": 0.5,
+            "DCDC_PV": {
+                "FaultStatus_DCDC": 0,
+                "RunStatus_DCDC": 1,
+                "Flag_Adjust": 1,
+                "P_real": 50.0,
+                "Pn": 100.0,
+                "P_max": 100.0,
+                "P_min": 0.0,
+                "HighVoltage_real": 820.0,
+                "I_max": 200.0
+            },
+            "LiEss": {
+                "Status": 0,
+                "RatedCapacity": 233.0,
+                "SOC_real": 0.5,
+                "P_real": -30.0,
+                "P_max": 100.0,
+                "P_min": -100.0,
+                "UnallowedChargingVoltage": 920.0,
+                "TMSComState": 2,
+                "ClusterMaxCellTemp": 36.0
+            },
+            "PCS": {
+                "ID_PCS": "PCS_002",
+                "FaultStatus_PCS": 1,
+                "RunStatus_PCS": 0,
+                "RunMode_PCS": 2,
+                "Type_PCS": 1,
+                "Flag_VFPCS": 1,
+                "Pn": 100.0,
+                "P_real": 0.0,
+                "Q_real": 0.0,
+                "P_max": 100.0,
+                "P_min": -100.0,
+                "P_set_1": -10.0
+            }
+        }
+    ]
+}
